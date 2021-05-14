@@ -17,41 +17,41 @@
                 <div class="row">
                     <div class="col-xl-6 col-md-6 col-12 mb-1">
                         <fieldset class="form-group">
-                            <label for="v_product_name">Product Name</label>
-                            <div id="v_product_name" class="text-dark"></div>
+                            <label for="v_product_name">Product Name:</label>
+                            <span id="v_product_name" class="text-dark"></span>
                         </fieldset>
                     </div>
                     <div class="col-xl-6 col-md-6 col-12 mb-1">
                         <fieldset class="form-group">
-                            <label for="v_brand">Brand</label>
-                            <div id="v_brand" class="text-dark"></div>
+                            <label for="v_brand">Brand:</label>
+                            <span id="v_brand" class="text-dark"></span>
                         </fieldset>
                     </div>
                     <div class="col-xl-6 col-md-6 col-12 mb-1">
                         <fieldset class="form-group">
-                            <label for="v_cost_price">Cost Price</label>
-                            <div id="v_cost_price" class="text-dark"></div>
+                            <label for="v_cost_price">Cost Price:</label>
+                            <span id="v_cost_price" class="text-dark"></span>
                         </fieldset>
                     </div>
                     <div class="col-xl-6 col-md-6 col-12 mb-1">
                         <fieldset class="form-group">
-                            <label for="v_selling_price">Selling Price</label>
-                            <div id="v_selling_price" class="text-dark"></div>
+                            <label for="v_selling_price">Selling Price:</label>
+                            <span id="v_selling_price" class="text-dark"></span>
                         </fieldset>
                     </div>
                     <div class="col-xl-6 col-md-6 col-12 mb-1">
                         <fieldset class="form-group">
-                            <label for="v_quantity">Quantity</label>
-                            <div id="v_quantity" class="text-dark"></div>
+                            <label for="v_quantity">Quantity:</label>
+                            <span id="v_quantity" class="text-dark"></span>
                         </fieldset>
                     </div>
                     <div class="col-xl-6 col-md-6 col-12 mb-1">
                         <fieldset class="form-group">
-                            <label for="v_alert_stock">Quantity In Stock</label>
-                            <div id="v_alert_stock" class="text-dark"></div>
+                            <label for="v_alert_stock">Quantity In Stock:</label>
+                            <span id="v_alert_stock" class="text-dark"></span>
                         </fieldset>
                     </div>
-                    </div>
+                </div>
             </div>
         </div>
     </div>

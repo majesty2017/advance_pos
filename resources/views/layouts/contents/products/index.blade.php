@@ -54,7 +54,6 @@
                                             <th>Sell Cost</th>
                                             <th>Quantity</th>
                                             <th>Stock</th>
-                                            <th>Description</th>
                                             <th>Action</th>
                                         </tr>
                                         </thead>
@@ -68,7 +67,6 @@
                                             <th>Sell Cost</th>
                                             <th>Quantity</th>
                                             <th>Stock</th>
-                                            <th>Description</th>
                                             <th>Action</th>
                                         </tr>
                                         </tfoot>

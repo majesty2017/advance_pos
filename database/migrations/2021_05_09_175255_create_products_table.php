@@ -22,7 +22,8 @@ class CreateProductsTable extends Migration
             $table->decimal('selling_price')->nullable();
             $table->decimal('cost_price')->nullable();
             $table->integer('quantity')->nullable();
-            $table->string('alert_stock')->default('100');
+            $table->string('alert_stock')->default('10');
+            $table->string('qrcode')->default('qrcode.png');
             $table->softDeletes();
             $table->timestamps();
         });

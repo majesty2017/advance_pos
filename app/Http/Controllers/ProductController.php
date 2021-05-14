@@ -43,10 +43,11 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $v = Validator::make($request->all(), [
-           'product_name' => 'required|string|max:255',
+           'product_name' => 'required|string|max:255|unique:products',
             'cost_price' => 'required|string|max:255',
             'selling_price' => 'required|string|max:255',
             'quantity' => 'required|numeric',
+            'stock' => 'required|numeric',
         ]);
         if ($v->fails()) {
             return response()->json(['status' => 'fail', 'error' => $v->errors()]);
@@ -57,6 +58,7 @@ class ProductController extends Controller
         $product->cost_price = $request->cost_price;
         $product->selling_price = $request->selling_price;
         $product->quantity = $request->quantity;
+        $product->alert_stock = $request->stock;
         $product->brand = $request->brand;
         $product->description = $request->description;
         if ($product->save()) {
@@ -82,7 +84,8 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        $product = Product::where('id', $product->id)->first();
+        return response()->json($product);
     }
 
     /**
@@ -110,6 +113,7 @@ class ProductController extends Controller
             'cost_price' => 'required|string|max:255',
             'selling_price' => 'required|string|max:255',
             'quantity' => 'required|numeric',
+            'stock' => 'required|numeric',
         ]);
         if ($v->fails()) {
             return response()->json(['status' => 'fail', 'error' => $v->errors()]);
@@ -120,6 +124,7 @@ class ProductController extends Controller
         $product->cost_price = $request->cost_price;
         $product->selling_price = $request->selling_price;
         $product->quantity = $request->quantity;
+        $product->alert_stock = $request->stock;
         $product->brand = $request->brand;
         $product->description = $request->description;
         if ($product->update()) {

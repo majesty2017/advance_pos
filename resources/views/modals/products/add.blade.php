@@ -28,16 +28,17 @@
                         <div class="col-xl-6 col-md-6 col-12 mb-1">
                             <fieldset class="form-group">
                                 <label for="cost_price">Cost Price</label>
-                                <input type="text" class="form-control round" name="cost_price" id="cost_price" placeholder="Enter Selling Price">
+                                <input type="text" class="form-control round" onkeyup="profit()" onkeydown="profit()" name="cost_price" id="cost_price" placeholder="Enter Selling Price">
                             </fieldset>
                         </div>
                         <div class="col-xl-6 col-md-6 col-12 mb-1">
                             <fieldset class="form-group">
                                 <label for="selling_price">Selling Price</label>
-                                <input type="text" class="form-control round" name="selling_price" id="selling_price" placeholder="Enter Selling Price">
+                                <input type="text" class="form-control round" onkeyup="profit()" onkeydown="profit()" name="selling_price" id="selling_price" placeholder="Enter Selling Price">
                             </fieldset>
+                            <div id="profit"></div>
                         </div>
-                        <div class="col-xl-3 col-md-3 col-12 mb-1">
+                        <div class="col-xl-6 col-md-6 col-12 mb-1">
                             <fieldset class="form-group">
                                 <label for="quantity">Quantity</label>
                                 <div class="input-group">
@@ -45,7 +46,15 @@
                                 </div>
                             </fieldset>
                         </div>
-                        <div class="col-xl-9 col-md-9 col-12 mb-1">
+                        <div class="col-xl-6 col-md-6 col-12 mb-1">
+                            <fieldset class="form-group">
+                                <label for="quantity">Alert Stock</label>
+                                <div class="input-group">
+                                    <input type="number" name="stock" id="stock" class="touchspin form-control" value="0">
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="col-xl-12 col-md-12 col-12 mb-1">
                             <fieldset class="form-group">
                                 <label for="description">Description</label>
                                 <textarea class="form-control round" name="description" id="description" cols="1" placeholder="Description"></textarea>

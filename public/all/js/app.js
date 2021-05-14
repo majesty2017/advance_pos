@@ -274,39 +274,19 @@ function edit_user(id) {
 }
 
 // Products
-$('#addProductForm').submit(function (e) {
-    e.preventDefault()
+function profit() {
+    let profit = 0
     let cost_price = $('#cost_price').val()
     let selling_price = $('#selling_price').val()
-    if (cost_price > selling_price) {
-        errorSMS('Cost price must not be more than Selling price')
-        return
+    let profit_id = $('#profit')
+    let e_profit_id = $('#e_profit')
+    if (selling_price != '' || cost_price != '') {
+       profit = (parseFloat(cost_price) + parseFloat(selling_price))
+        profit_id.html('profit: ' + profit)
+        e_profit_id.html('profit: ' + profit)
     }
-    $.ajax({
-        url: $(this).attr('action'),
-        type: 'post',
-        cache: false,
-        contentType: false,
-        processData: false,
-        data: new FormData(this),
-        success: function (data) {
-            if (data.status === 'fail') {
-                let message = ''
-                $.each(data.error, function (a,b) {
-                    message = b
-                    errorSMS(message)
-                })
-            } else {
-                $('#addProductForm')[0].reset()
-                hold_modal('addProductModal', 'hide')
-                product_table.ajax.reload()
-                successSMS(data.message)
-            }
-        }
-    })
-})
-
-$('#editProductForm').submit(function (e) {
+}
+$('#addProductForm').submit(function (e) {
     e.preventDefault()
     let cost_price = $('#cost_price').val()
     let selling_price = $('#selling_price').val()
@@ -357,15 +337,25 @@ $(document).ready(function () {
             {'data': 'cost_price'},
             {'data': 'selling_price'},
             {'data': 'quantity'},
-            {'data': 'alert_stock'},
-            {'data': 'description'},
+            {
+                'data': null,
+                render: function (data) {
+                    if (data.alert_stock >= data.quantity) {
+                        return `<span class="badge badge-danger">Low stock: ${data.alert_stock}</span>`
+                    } else if (data.alert_stock === 0 && data.quantity === 0) {
+                        return `<span class="badge badge-danger">Out stock</span>`
+                    } else {
+                        return `<span class="badge badge-success">In stock ${data.alert_stock}</span>`
+                    }
+                }
+            },
             {
                 'data': null,
                 render: function (data, row, type) {
                     return `<div class="btn-group" role="group" aria-label="Basic example">
                                 <button type="button" class="btn btn-outline-info btn-sm" onclick="view_product(${data.id})"><i class="feather icon-eye"></i></button>
                                 <button type="button" class="btn btn-outline-primary btn-sm" onclick="edit_product(${data.id})"><i class="feather icon-edit"></i></button>
-                                <button type="button" class="btn btn-outline-danger btn-sm" onclick="deleteAlert(${data.id}, 'users/destroy/')"><i class="feather icon-trash"></i></button>
+                                <button type="button" class="btn btn-outline-danger btn-sm" onclick="deleteAlert(${data.id}, 'products/destroy/')"><i class="feather icon-trash"></i></button>
                             </div>`
                 }
             },
@@ -374,9 +364,63 @@ $(document).ready(function () {
 })
 
 function view_product(id) {
-    alert(id)
+    $.ajax({
+        url: 'products/'+id,
+        type: 'get',
+        success: function (data) {
+            $('#product_info').html(data.product_name)
+            $.each(data, function (k,v) {
+                $('#v_'+k).html(v)
+            })
+        }
+    })
+    hold_modal('viewProductModal', 'show')
 }
 
 function edit_product(id) {
+    $.ajax({
+    url: 'products/'+id,
+    type: 'get',
+    success: function (data) {
+        $('#product_info').html(data.product_name)
+        $.each(data, function (k,v) {
+            $('#e_'+k).val(v)
+        })
+    }
+})
     hold_modal('editProductModal', 'show')
 }
+
+$('#editProductForm').submit(function (e) {
+    e.preventDefault()
+    let cost_price = $('#e_cost_price').val()
+    let selling_price = $('#e_selling_price').val()
+    if (cost_price > selling_price) {
+        errorSMS('Cost price must not be more than Selling price')
+        return
+    }
+    let formData = new FormData(this) + _token
+    console.log(formData)
+    $.ajax({
+        url: 'products/' + $('#e_id').val(),
+        type: 'put',
+        cache: false,
+        contentType: false,
+        processData: false,
+        data: new FormData(this) + _token,
+        success: function (data) {
+            if (data.status === 'fail') {
+                let message = ''
+                $.each(data.error, function (a,b) {
+                    message = b
+                    errorSMS(message)
+                })
+            } else {
+                $('#addProductForm')[0].reset()
+                hold_modal('editProductModal', 'hide')
+                product_table.ajax.reload()
+                successSMS(data.message)
+            }
+        }
+    })
+})

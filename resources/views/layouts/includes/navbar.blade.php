@@ -52,7 +52,7 @@
                             </li>
                             <li class="scrollable-container media-list"><a class="cart-item" href="app-ecommerce-details.html">
                                     <div class="media">
-                                        <div class="media-left d-flex justify-content-center align-items-center"><img src="{{ asset('all/app-assets/images/pages/eCommerce/4.png')}}'" width="75" alt="Cart Item"></div>
+                                        <div class="media-left d-flex justify-content-center align-items-center"><img src="{{ asset('all/app-assets/images/pages/eCommerce/4.png')}}" width="75" alt="Cart Item"></div>
                                         <div class="media-body"><span class="item-title text-truncate text-bold-500 d-block mb-50">Apple - Apple Watch Series 1 42mm Space Gray Aluminum Case Black Sport Band - Space Gray Aluminum</span><span class="item-desc font-small-2 text-truncate d-block"> Durable, lightweight aluminum cases in silver, space gray,gold, and rose gold. Sport Band in a variety of colors. All the features of the original Apple Watch, plus a new dual-core processor for faster performance. All models run watchOS 3. Requires an iPhone 5 or later to run this device.</span>
                                             <div class="d-flex justify-content-between align-items-center mt-1"><span class="align-middle d-block">1 x $299</span><i class="remove-cart-item feather icon-x danger font-medium-1"></i></div>
                                         </div>
@@ -167,7 +167,7 @@
         </a></li>
     <li class="auto-suggestion d-flex align-items-center cursor-pointer"><a class="d-flex align-items-center justify-content-between w-100" href="#">
             <div class="d-flex">
-                <div class="mr-50"><img src="all/app-assets/images/icons/xls.png" alt="png" height="32"></div>
+                <div class="mr-50"><img src="{{ asset('all/app-assets/images/icons/xls.png')}}" alt="png" height="32"></div>
                 <div class="search-data">
                     <p class="search-data-title mb-0">Two new item submitted</p><small class="text-muted">Marketing Manager</small>
                 </div>
@@ -175,7 +175,7 @@
         </a></li>
     <li class="auto-suggestion d-flex align-items-center cursor-pointer"><a class="d-flex align-items-center justify-content-between w-100" href="#">
             <div class="d-flex">
-                <div class="mr-50"><img src="all/app-assets/images/icons/jpg.png" alt="png" height="32"></div>
+                <div class="mr-50"><img src="{{ asset('all/app-assets/images/icons/jpg.png')}}" alt="png" height="32"></div>
                 <div class="search-data">
                     <p class="search-data-title mb-0">52 JPG file Generated</p><small class="text-muted">FontEnd Developer</small>
                 </div>
@@ -183,7 +183,7 @@
         </a></li>
     <li class="auto-suggestion d-flex align-items-center cursor-pointer"><a class="d-flex align-items-center justify-content-between w-100" href="#">
             <div class="d-flex">
-                <div class="mr-50"><img src="all/app-assets/images/icons/pdf.png" alt="png" height="32"></div>
+                <div class="mr-50"><img src="{{ asset('all/app-assets/images/icons/pdf.png')}}" alt="png" height="32"></div>
                 <div class="search-data">
                     <p class="search-data-title mb-0">25 PDF File Uploaded</p><small class="text-muted">Digital Marketing Manager</small>
                 </div>
@@ -191,7 +191,7 @@
         </a></li>
     <li class="auto-suggestion d-flex align-items-center cursor-pointer"><a class="d-flex align-items-center justify-content-between w-100" href="#">
             <div class="d-flex">
-                <div class="mr-50"><img src="all/app-assets/images/icons/doc.png" alt="png" height="32"></div>
+                <div class="mr-50"><img src="{{ asset('all/app-assets/images/icons/doc.png')}}" alt="png" height="32"></div>
                 <div class="search-data">
                     <p class="search-data-title mb-0">Anna_Strong.doc</p><small class="text-muted">Web Designer</small>
                 </div>
@@ -202,7 +202,7 @@
         </a></li>
     <li class="auto-suggestion d-flex align-items-center cursor-pointer"><a class="d-flex align-items-center justify-content-between py-50 w-100" href="#">
             <div class="d-flex align-items-center">
-                <div class="avatar mr-50"><img src="all/app-assets/images/portrait/small/avatar-s-8.jpg" alt="png" height="32"></div>
+                <div class="avatar mr-50"><img src="{{ asset('all/app-assets/images/portrait/small/avatar-s-8.jpg')}}" alt="png" height="32"></div>
                 <div class="search-data">
                     <p class="search-data-title mb-0">John Doe</p><small class="text-muted">UI designer</small>
                 </div>
@@ -210,7 +210,7 @@
         </a></li>
     <li class="auto-suggestion d-flex align-items-center cursor-pointer"><a class="d-flex align-items-center justify-content-between py-50 w-100" href="#">
             <div class="d-flex align-items-center">
-                <div class="avatar mr-50"><img src="all/app-assets/images/portrait/small/avatar-s-1.jpg" alt="png" height="32"></div>
+                <div class="avatar mr-50"><img src="{{ asset('all/app-assets/images/portrait/small/avatar-s-1.jpg')}}" alt="png" height="32"></div>
                 <div class="search-data">
                     <p class="search-data-title mb-0">Michal Clark</p><small class="text-muted">FontEnd Developer</small>
                 </div>
@@ -218,7 +218,7 @@
         </a></li>
     <li class="auto-suggestion d-flex align-items-center cursor-pointer"><a class="d-flex align-items-center justify-content-between py-50 w-100" href="#">
             <div class="d-flex align-items-center">
-                <div class="avatar mr-50"><img src="all/app-assets/images/portrait/small/avatar-s-14.jpg" alt="png" height="32"></div>
+                <div class="avatar mr-50"><img src="{{ asset('all/app-assets/images/portrait/small/avatar-s-14.jpg')}}" alt="png" height="32"></div>
                 <div class="search-data">
                     <p class="search-data-title mb-0">Milena Gibson</p><small class="text-muted">Digital Marketing Manager</small>
                 </div>
@@ -226,7 +226,7 @@
         </a></li>
     <li class="auto-suggestion d-flex align-items-center cursor-pointer"><a class="d-flex align-items-center justify-content-between py-50 w-100" href="#">
             <div class="d-flex align-items-center">
-                <div class="avatar mr-50"><img src="all/app-assets/images/portrait/small/avatar-s-6.jpg" alt="png" height="32"></div>
+                <div class="avatar mr-50"><img src="{{ asset('all/app-assets/images/portrait/small/avatar-s-6.jpg')}}" alt="png" height="32"></div>
                 <div class="search-data">
                     <p class="search-data-title mb-0">Anna Strong</p><small class="text-muted">Web Designer</small>
                 </div>
