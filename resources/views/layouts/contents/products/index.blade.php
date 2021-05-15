@@ -50,8 +50,8 @@
                                             <th>#</th>
                                             <th>Name</th>
                                             <th>Brand</th>
-                                            <th>Sell Price</th>
                                             <th>Sell Cost</th>
+                                            <th>Sell Price</th>
                                             <th>Quantity</th>
                                             <th>Stock</th>
                                             <th>Action</th>
@@ -63,8 +63,8 @@
                                             <th>#</th>
                                             <th>Name</th>
                                             <th>Brand</th>
-                                            <th>Sell Price</th>
                                             <th>Sell Cost</th>
+                                            <th>Sell Price</th>
                                             <th>Quantity</th>
                                             <th>Stock</th>
                                             <th>Action</th>

@@ -34,6 +34,9 @@ Route::get('/logout', [LoginController::class, 'logout']);
 
 //Order Route
 Route::resource('/orders', OrderController::class);
+Route::get('/get-orders', [OrderController::class, 'orders']);
+Route::get('/get-order-products', [OrderController::class, 'get_products']);
+Route::get('/get-product-id/{product_id}', [OrderController::class, 'get_product_byId']);
 
 //Order Detail Route
 Route::resource('/order_details', OrderDetailController::class);

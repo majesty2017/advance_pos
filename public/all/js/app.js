@@ -1,3 +1,9 @@
+$(document).ready(function () {
+    $(".select2").select2({
+        dropdownAutoWidth: true,
+        width: '100%'
+    });
+})
 function hold_modal(id, action) {
     $('#' + id).modal(action)
 }
@@ -290,10 +296,10 @@ $('#addProductForm').submit(function (e) {
     e.preventDefault()
     let cost_price = $('#cost_price').val()
     let selling_price = $('#selling_price').val()
-    if (cost_price > selling_price) {
-        errorSMS('Cost price must not be more than Selling price')
-        return
-    }
+    // if (cost_price > selling_price) {
+    //     errorSMS('Cost price must not be more than Selling price')
+    //     return
+    // }
     $.ajax({
         url: $(this).attr('action'),
         type: 'post',
@@ -329,7 +335,7 @@ $(document).ready(function () {
             {
                 'data': null,
                 render: function () {
-                    return ++key
+                    return ++key;
                 }
             },
             {'data': 'product_name'},
@@ -424,4 +430,101 @@ $('#editProductForm').submit(function (e) {
             }
         }
     })
+})
+
+$(document).ready(function () {
+    $.ajax({
+        url: 'get-order-products',
+        type: 'get',
+        success: function (data) {
+            $.each(data, function (k, v) {
+                $('#product_id').append(`<option value="${v.id}">${v.product_name}</option>`)
+            })
+        }
+    })
+})
+
+$('#product_id').change(function () {
+    let product_id = $('#product_id').val()
+    $.ajax({
+        url: 'get-product-id/'+product_id,
+        type: 'get',
+        success: function (data) {
+           $('#price').val(data.selling_price)
+           $('#stock').val(data.alert_stock)
+        }
+    })
+})
+
+function total() {
+    let quantity =  0
+    let discount =  0
+    let price =  $('#price').val()
+    if (quantity === 0) {
+        quantity = $('#quantity').val()
+    }
+    if (discount === 0) {
+        discount = $('#discount').val()
+    }
+    let total = ((parseFloat(price) * parseFloat(quantity)) + parseFloat(discount))
+    $('#total_price').val(total)
+}
+
+$('#add-more').click(function () {
+    $.ajax({
+        url: 'get-order-products',
+        type: 'get',
+        success: function (data) {
+            $.each(data, function (k, v) {
+                $('#m_product_id').append(`<option value="${v.id}">${v.product_name}</option>`)
+            })
+        }
+    })
+    $('#m_product_id').change(function () {
+        let product_id = $('#m_product_id').val()
+        $.ajax({
+            url: 'get-product-id/'+product_id,
+            type: 'get',
+            success: function (data) {
+                $('#m_price').val(data.selling_price)
+                $('#m_stock').val(data.alert_stock)
+            }
+        })
+    })
+    let html = `
+        <tr id="remove-more">
+            <td>
+                <select class="form-control select2" name="product_id[]" id="m_product_id">
+                    <option value="">Select</option>
+                </select>
+            </td>
+            <td>
+                <input type="text" class="form-control" name="stock[]" id="m_stock">
+            </td>
+            <td>
+                <input type="text" class="form-control" name="price[]" id="m_price">
+            </td>
+            <td>
+                <input type="number" class="form-control" onkeyup="total()" onkeydown="total()" name="quantity[]" id="m_quantity">
+            </td>
+            <td>
+                <input type="text" class="form-control" name="discount[]" id="m_discount">
+            </td>
+            <td>
+                <input type="text" class="form-control" name="total_price[]" readonly id="m_total_price">
+            </td>
+            <td>
+                <button type="button" class="btn btn-outline-danger btn-sm" id="remove-more-btn"><i class="fa fa-minus-circle"></i></button>
+            </td>
+        </tr>
+    `
+    $('#fields').append(html)
+})
+
+$('#remove-btn').click(function () {
+    errorSMS('You cannot remove the last row.')
+})
+
+$('#remove-more-btn').click(function () {
+    alert('Remove')
 })

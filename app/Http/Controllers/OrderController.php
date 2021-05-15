@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -14,7 +15,25 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.orders.index');
+    }
+
+    public function orders()
+    {
+        $orders = Order::orderBy('id', 'DESC')->get();
+        return response()->json($orders);
+    }
+
+    public function get_products()
+    {
+        $products = Product::orderBy('product_name', 'ASC')->get();
+        return response()->json($products);
+    }
+
+    public function get_product_byId($product_id)
+    {
+        $products = Product::where('id', $product_id)->first();
+        return response()->json($products);
     }
 
     /**
