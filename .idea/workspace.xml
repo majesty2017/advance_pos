@@ -4,19 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78d7835a-d7be-4215-bd48-7525eeac36bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="78d7835a-d7be-4215-bd48-7525eeac36bd" name="Default Changelist" comment="Updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_09_175255_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_05_09_175255_create_products_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/all/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/all/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/contents/products/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/contents/products/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/includes/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/includes/navbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/modals/products/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/modals/products/add.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/modals/products/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/modals/products/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/modals/products/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/modals/products/view.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,7 +221,16 @@
       <workItem from="1620821429379" duration="26000" />
       <workItem from="1620821524536" duration="6883000" />
       <workItem from="1620851273477" duration="27864000" />
+      <workItem from="1620975726847" duration="3831000" />
     </task>
+    <task id="LOCAL-00001" summary="Updated">
+      <created>1620976234668</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1620976234668</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,5 +246,10 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated" />
   </component>
 </project>

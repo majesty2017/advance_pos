@@ -53,7 +53,7 @@ class ProductController extends Controller
             return response()->json(['status' => 'fail', 'error' => $v->errors()]);
         }
         $product = new Product();
-        $product->product_id = mt_rand(10, 1000000000000000);
+        $product->product_id = mt_rand(10, 1000000000);
         $product->product_name = $request->product_name;
         $product->cost_price = $request->cost_price;
         $product->selling_price = $request->selling_price;
@@ -118,8 +118,7 @@ class ProductController extends Controller
         if ($v->fails()) {
             return response()->json(['status' => 'fail', 'error' => $v->errors()]);
         }
-        $product = Product::find($product->product_id);
-        $product->product_id = mt_rand(10, 1000000000000000);
+        $product = Product::find($product->id);
         $product->product_name = $request->product_name;
         $product->cost_price = $request->cost_price;
         $product->selling_price = $request->selling_price;
@@ -141,7 +140,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        $product = Product::find($product->product_id);
+        $product = Product::find($product->id);
         if ($product->delete()) {
             return response()->json(['message' => 'Product deleted successfully', 'data' => $product]);
         }

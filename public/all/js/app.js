@@ -340,12 +340,12 @@ $(document).ready(function () {
             {
                 'data': null,
                 render: function (data) {
-                    if (data.alert_stock >= data.quantity) {
+                    if (parseInt(data.alert_stock) >= parseInt(data.quantity)) {
                         return `<span class="badge badge-danger">Low stock: ${data.alert_stock}</span>`
-                    } else if (data.alert_stock === 0 && data.quantity === 0) {
+                    } else if (parseInt(data.alert_stock) && parseInt(data.quantity) === 0) {
                         return `<span class="badge badge-danger">Out stock</span>`
                     } else {
-                        return `<span class="badge badge-success">In stock ${data.alert_stock}</span>`
+                        return `<span class="badge badge-success">In stock: ${data.alert_stock}</span>`
                     }
                 }
             },
@@ -355,7 +355,7 @@ $(document).ready(function () {
                     return `<div class="btn-group" role="group" aria-label="Basic example">
                                 <button type="button" class="btn btn-outline-info btn-sm" onclick="view_product(${data.id})"><i class="feather icon-eye"></i></button>
                                 <button type="button" class="btn btn-outline-primary btn-sm" onclick="edit_product(${data.id})"><i class="feather icon-edit"></i></button>
-                                <button type="button" class="btn btn-outline-danger btn-sm" onclick="deleteAlert(${data.id}, 'products/destroy/')"><i class="feather icon-trash"></i></button>
+                                <button type="button" class="btn btn-outline-danger btn-sm" onclick="deleteAlert(${data.id}, 'products/')"><i class="feather icon-trash"></i></button>
                             </div>`
                 }
             },
@@ -399,15 +399,16 @@ $('#editProductForm').submit(function (e) {
         errorSMS('Cost price must not be more than Selling price')
         return
     }
-    let formData = new FormData(this) + _token
+    let formData = new FormData(this)
+    formData.append('_method', 'PUT');
     console.log(formData)
     $.ajax({
         url: 'products/' + $('#e_id').val(),
-        type: 'put',
+        type: 'POST',
         cache: false,
         contentType: false,
         processData: false,
-        data: new FormData(this) + _token,
+        data: formData,
         success: function (data) {
             if (data.status === 'fail') {
                 let message = ''
